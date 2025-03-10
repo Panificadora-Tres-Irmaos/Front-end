@@ -8,7 +8,7 @@ function NavbarComponent() {
   return (
     <Navbar expand="lg" className={styles.customNavbar}>
       <Container className={styles.container}>
-        <Navbar.Brand href="#home" className={styles.titleNav}>
+        <Navbar.Brand className={styles.titleNav}>
           <img src='src\assets\logo\logo_tres_contrario.png'></img>
           <p>Panificadora Três Irmãos</p>
         </Navbar.Brand>

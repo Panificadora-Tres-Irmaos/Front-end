@@ -1,0 +1,14 @@
+#divPrinc{
+    border: 2px solid black;
+    margin-right: -2px;
+    margin-left: -2px;
+    border-radius: 5px;
+    
+    #descricao {
+        font-size: 13px;
+    }
+    
+    #btn {
+        background-color: #652A0E;
+    }
+}
