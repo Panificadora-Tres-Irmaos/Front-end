@@ -1,0 +1,81 @@
+@media (max-width: 768px) {
+    #divLogo, #logo {
+        display: none !important;
+    }
+    #formulario {
+        margin-left: 30% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #formulario {
+        margin-left: 20% !important;
+    }
+}
+
+@media (max-width: 426px) {
+    #formulario {
+        margin-left: 15% !important;
+    }
+}
+@media (max-width: 426px) {
+    #formulario {
+        margin-left: 15% !important;
+    }
+}
+
+@media (max-width: 320px) {
+    #formulario {
+        margin-left: 3% !important;
+    }
+}
+
+container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #FEFBEA;
+}
+
+.input {
+    font-size: 20px;
+    width: 300px;
+}
+
+#botaoCadastrar {
+    font-size: 25px;
+    padding: 8px 35px;
+    background-color: #652A0E;
+    border: none;
+}
+
+#botaoCadastrar:hover {
+    background-color: #712f10;
+}
+
+#formulario {
+    margin-left: 22%;
+}
+
+#campos {
+    text-align: start;
+}
+
+.labels {
+    font-size: 25px;
+}
+
+#titulo {
+    font-size: 52px;
+    margin-bottom: 15%;
+}
+
+#divLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40vw;
+    background-color: #652A0E;
+}
