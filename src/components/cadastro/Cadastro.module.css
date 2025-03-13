@@ -9,21 +9,15 @@
 
 @media (max-width: 600px) {
     #formulario {
-        margin-left: 20% !important;
-    }
-}
-
-@media (max-width: 426px) {
-    #formulario {
-        margin-left: 15% !important;
-    }
-}
-@media (max-width: 426px) {
-    #formulario {
         margin-left: 15% !important;
     }
 }
 
+@media (max-width: 425px) {
+    #formulario {
+        margin-left: 10% !important;
+    }
+}
 @media (max-width: 320px) {
     #formulario {
         margin-left: 3% !important;
@@ -78,4 +72,13 @@ container {
     height: 100%;
     width: 40vw;
     background-color: #652A0E;
+}
+
+.redirecionar {
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+.redirecionar:hover {
+    cursor: pointer;
 }
