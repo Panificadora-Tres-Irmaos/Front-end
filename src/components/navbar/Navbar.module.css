@@ -1,40 +1,67 @@
-.customNavbar {
+#customNavbar {
     background-color: #652A0E;
-    .titleNav {
+    
+    #titleNav {
         display: flex;
         color: #FEFBEA;
         transition: 0.3s ease-in-out;
         padding-bottom: 2px;
         border-bottom: 2px solid transparent;
+        
         img {
             margin-bottom: 5px;
             margin-right: 10px;
             width: 45px;
             height: 45px;
         }
+        
         p {
             margin-top: 8px;
         }
     }
 
-
     #botaoMenu {
         color: #FEFBEA;
     }
-    
+
     #contLinks {
         display: flex;
         align-items: center;
         gap: 40px;
         margin-left: auto;
+        color: #FEFBEA;
+
+        #profileDropdown {
+            color: #FEFBEA;
+            font-size: 16px;
+            transition: 0.3s ease-in-out;
+            height: 33px;
+        }
+        
+        #profileDropdown .dropdown-menu {
+            background-color: #652A0E;
+            border: none;
+        }
+        
+        #profileDropdown .dropdown-item {
+            color: #FEFBEA;
+            transition: 0.3s ease-in-out;
+        }
+        
+        #profileDropdown .dropdown-item:hover {
+            background-color: #824122;
+            color: #FEFBEA;
+        }
+
         .links {
             color: #FEFBEA;
             transition: 0.3s ease-in-out;
             padding-bottom: 0.5px;
             border-bottom: 2px solid transparent;
             font-size: 16px;
+            cursor: pointer;
             img {
-                width: 35px;
+                width: 42px;
                 height: 35px;
                 position: relative;
                 left: -3px;
