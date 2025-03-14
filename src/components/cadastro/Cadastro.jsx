@@ -52,9 +52,8 @@ function Cadastro() {
 
     // Só verifica os campos nome e sobrenome se estiver na etapa 2
     if (etapa === 2) {
-      validarCampo(nomeRef);
-
-      validarCampo(sobrenomeRef);
+      isValid = validarCampo(nomeRef) && isValid;
+      isValid = validarCampo(sobrenomeRef) && isValid;
     }
 
     if (isValid) {
@@ -71,12 +70,10 @@ function Cadastro() {
           nome: nome,
           sobrenome: sobrenome,
         };
-        console.log(requestBody);
 
         try {
-          console.log(requestBody);
           const response = await fetch(
-            "https://panificadora-backend.onrender.com/user/create_user",
+            "https://cors-anywhere.herokuapp.com/https://back-end-u0qf.onrender.com/user/create_user",
             {
               method: "POST",
               headers: {
@@ -112,9 +109,8 @@ function Cadastro() {
         };
 
         try {
-          console.log(requestBody);
           const response = await fetch(
-            "https://panificadora-backend.onrender.com/",
+            "https://back-end-u0qf.onrender.com/user/login",
             {
               method: "POST",
               headers: {
@@ -131,7 +127,7 @@ function Cadastro() {
             result = { message: await response.text() }; // Caso não seja JSON, lê como texto
           }
 
-          if (response === 201) {
+          if (response.status === 200) {
             alert("Login realizado com sucesso!");
           } else {
             alert("Erro no login: " + JSON.stringify(result.message));
