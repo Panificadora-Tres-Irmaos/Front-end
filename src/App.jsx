@@ -6,10 +6,11 @@ import CardExample from './components/cards/Cards'
 import Cadastro from './components/cadastro/Cadastro'
 
 function App() {
+  
 
   return (
     <>
-      <Cadastro />
+    <Cadastro />
     </>
   )
 }
