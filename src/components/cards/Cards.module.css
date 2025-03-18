@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    border: none;
+
+    #imagem {
+        border: 2px solid black;
+        margin-right: -2px;
+        border-radius: 5px;
+    }
+
+    #divPrinc{
+        border: 2px solid black;
+        border-radius: 5px;
+        
+        #descricao {
+            font-size: 13px;
+        }
+        
+        #btn {
+            background-color: #652A0E !important;
+            padding: 5px;
+            margin-left: -5px;
+            margin-right: -5px;
+            font-size: 15px;
+            position: relative;
+            left: 6px;
+            padding-right: 10px;
+            padding-left: 10px;
+            border: none;
+        }
+
+        #btn:active {
+            background-color: #53230d !important;
+        }
+    }
+}
