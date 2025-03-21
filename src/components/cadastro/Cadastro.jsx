@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./Cadastro.module.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -15,6 +16,7 @@ function Cadastro() {
     nome: "",
     sobrenome: "",
   });
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setDados({ ...dados, [e.target.name]: e.target.value });
@@ -73,7 +75,7 @@ function Cadastro() {
 
         try {
           const response = await fetch(
-            "https://cors-anywhere.herokuapp.com/https://back-end-u0qf.onrender.com/user/create_user",
+            "https://back-end-u0qf.onrender.com/user/create_user",
             {
               method: "POST",
               headers: {
@@ -92,6 +94,7 @@ function Cadastro() {
 
           if (response.status === 201) {
             alert("Cadastro realizado com sucesso!");
+            navigate("/produtos");
           } else if (response.status === 409) {
             alert("Erro: " + result.message);
           } else {
@@ -129,6 +132,7 @@ function Cadastro() {
 
           if (response.status === 200) {
             alert("Login realizado com sucesso!");
+            navigate("/produtos");
           } else {
             alert("Erro no login: " + JSON.stringify(result.message));
           }

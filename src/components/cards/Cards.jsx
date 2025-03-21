@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import style from "./Cards.module.css";
+import NavbarComponent from '../navbar/Navbar';
 
 function CardExample() {
   const [produtos, setProdutos] = useState([]);
@@ -29,26 +30,29 @@ function CardExample() {
   }
 
   return (
-    <div className={style.container}>
-      {produtos.length > 0 ? (
-        produtos.map((produto) => (
-          <Card key={produto.id} style={{ width: "18rem", margin: "10px", border: "none" }}>
-            <Card.Img 
-              variant="top"
-              src={produto.imagem || "https://via.placeholder.com/150"}
-              id={style.imagem}
-            />
-            <Card.Body id={style.divPrinc}>
-              <Card.Title>{produto.nome}</Card.Title>
-              <Card.Text id={style.descricao}>{produto.descricao}</Card.Text>
-              <Button variant="primary" id={style.btn}>Adcionar ao carrinho</Button>
-            </Card.Body>
-          </Card>
-        ))
-      ) : (
-        <p>Nenhum produto encontrado.</p>
-      )}
-    </div>
+    <>
+    <NavbarComponent  />
+      <div className={style.container}>
+        {produtos.length > 0 ? (
+          produtos.map((produto) => (
+            <Card key={produto.id} style={{ width: "18rem", margin: "10px", border: "none" }}>
+              <Card.Img 
+                variant="top"
+                src={produto.imagem || "https://via.placeholder.com/150"}
+                id={style.imagem}
+              />
+              <Card.Body id={style.divPrinc}>
+                <Card.Title>{produto.nome}</Card.Title>
+                <Card.Text id={style.descricao}>{produto.descricao}</Card.Text>
+                <Button variant="primary" id={style.btn}>Adcionar ao carrinho</Button>
+              </Card.Body>
+            </Card>
+          ))
+        ) : (
+          <p>Nenhum produto encontrado.</p>
+        )}
+      </div>
+    </>
   );
 }
 
