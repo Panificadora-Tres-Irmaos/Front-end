@@ -1,6 +1,6 @@
 # Panificadora Três Irmãos - Frontend
 
-A **Panificadora Três Irmãos** é um projeto da na matéria de DAD (Desenvolvimento Aplicação Dinâmica), desenvolvido por estudantes da escola Germinare Tech.
+A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimento Aplicação Dinâmica), desenvolvido por estudantes da escola Germinare Tech.
 
 ## Linguagens utilizadas
 - **Front-end**: JavaScript, HTML e CSS
