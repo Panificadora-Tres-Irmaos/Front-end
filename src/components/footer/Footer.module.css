@@ -1,0 +1,10 @@
+footer {
+    background-color: #652A0E;
+
+    .secao {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}
