@@ -1,20 +1,35 @@
+.cardSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
     gap: 20px;
     border: none;
+
+    h2, p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     #imagem {
         border: 2px solid black;
         margin-right: -2px;
         border-radius: 5px;
+        width: 287px;
+        height: 210px;
     }
 
     #divPrinc{
         border: 2px solid black;
         border-radius: 5px;
-        
+        text-align: center;
+
         #descricao {
             font-size: 13px;
         }
