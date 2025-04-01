@@ -93,6 +93,7 @@ function Cadastro() {
           }
 
           if (response.status === 201) {
+            localStorage.setItem("id", dados.email); // Salva o ID do usuário
             alert("Cadastro realizado com sucesso!");
             navigate("/produtos");
           } else if (response.status === 409) {
@@ -131,6 +132,7 @@ function Cadastro() {
           }
 
           if (response.status === 200) {
+            localStorage.setItem("id", dados.email);
             alert("Login realizado com sucesso!");
             navigate("/produtos");
           } else {
@@ -271,6 +273,8 @@ function Cadastro() {
         </p>
       </Form>
     </container>
+
+    
   );
 }
 
