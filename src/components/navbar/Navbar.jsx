@@ -3,8 +3,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import style from "./Navbar.module.css";
+import { useNavigate } from 'react-router-dom'
 
 function NavbarComponent() {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem('id');
+    alert('Você foi desconectado!');
+    navigate('/');
+  };
+
   return (
     <Navbar expand="lg" id={style.customNavbar}>
       <Container id={style.container}>
@@ -29,7 +38,7 @@ function NavbarComponent() {
               id={style.profileDropdown}
               className={style.links}
             >
-              <NavDropdown.Item href="#logout">Sair</NavDropdown.Item>
+              <NavDropdown.Item onClick={logout}>Sair</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
