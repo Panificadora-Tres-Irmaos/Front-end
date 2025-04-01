@@ -22,3 +22,5 @@ A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimen
 - Para mais informações sobre o Boostrap no React.js, clique [aqui](https://react-bootstrap.netlify.app/docs/getting-started/introduction).
 3. Caso o React Router não esteja funcionando na máquina, é necessário instalar a dependência do React Router no React.js. A instalação pode ser realizada por meio do terminal (linha de comando), utilizando o seguinte comando:
 ```npm install react-router-dom```
+4. Caso o React Swiper não esteja funcionando na máquina, é necessário instalar a dependência do React Swiper no React.js. A instalação pode ser realizada por meio do terminal (linha de comando), utilizando o seguinte comando:
+```npm install swiper```

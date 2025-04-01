@@ -51,6 +51,16 @@ body {
             font-size: 18px;
             color: #652A0E;
         }
+
+        .qntd {
+            text-align: center;
+            padding-left: 8px;
+            margin-left: 10px;
+            width: 100px;
+            margin-bottom: 10px;
+            border: 2px solid #652A0E !important;
+            border-radius: 14px;
+        }
         
         #btn {
             background-color: #652A0E !important;
