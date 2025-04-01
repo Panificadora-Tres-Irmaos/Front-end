@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import style from "./Cards.module.css";
 import NavbarComponent from "../navbar/Navbar";
-import Footer from "../footer/Footer"
+import Footer from "../footer/Footer";
 
 function CardExample() {
   const [produtos, setProdutos] = useState([]);

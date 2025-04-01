@@ -3,8 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import style from './Navbar.module.css';
+import { useNavigate } from "react-router-dom";
 
 function NavbarComponent() {
+  const navigate = useNavigate(); 
+
   return (
     <Navbar expand="lg" id={style.customNavbar}>
       <Container id={style.container}>
@@ -16,9 +19,7 @@ function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav id={style.contLinks}>
             <Nav.Link href="#produtos" className={style.links}>Produtos</Nav.Link>
-            <Nav.Link href="#compras" className={style.links}>
               <img src="src/assets/images/carrinho-de-compras.png" alt="Carrinho" />
-            </Nav.Link>
             <NavDropdown title="Perfil" id={style.profileDropdown} className={style.links}>
               <NavDropdown.Item href="#logout">Sair</NavDropdown.Item>
             </NavDropdown>
