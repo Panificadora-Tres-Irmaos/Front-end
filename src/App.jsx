@@ -9,8 +9,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Cadastro />} /> {/* Usando 'element' para passar o componente */}
-        <Route path="/produtos" element={<CardExample />} /> {/* Usando 'element' para passar o componente */}
+        <Route path="/" element={<Cadastro />} />
+        <Route path="/produtos" element={<CardExample />} />
         <Route path='/cart' element={<Cart />}/>
       </Routes>
     </Router>
