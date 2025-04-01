@@ -12,15 +12,26 @@ function NavbarComponent() {
     <Navbar expand="lg" id={style.customNavbar}>
       <Container id={style.container}>
         <Navbar.Brand id={style.titleNav}>
-          <img src='src/assets/logo/logo_branca.png' alt="Logo" />
+          <img src="src/assets/logo/logo_branca.png" alt="Logo" />
           <p>Panificadora Três Irmãos</p>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" id={style.botaoMenu}/>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" id={style.botaoMenu} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav id={style.contLinks}>
-            <Nav.Link href="#produtos" className={style.links}>Produtos</Nav.Link>
-              <img src="src/assets/images/carrinho-de-compras.png" alt="Carrinho" />
-            <NavDropdown title="Perfil" id={style.profileDropdown} className={style.links}>
+            <Nav.Link href="#produtos" className={style.links}>
+              Produtos
+            </Nav.Link>
+            <Nav.Link href="#compras" className={style.links}>
+              <img
+                src="src/assets/images/carrinho-de-compras.png"
+                alt="Carrinho"
+              />
+            </Nav.Link>
+            <NavDropdown
+              title="Perfil"
+              id={style.profileDropdown}
+              className={style.links}
+            >
               <NavDropdown.Item href="#logout">Sair</NavDropdown.Item>
             </NavDropdown>
           </Nav>
