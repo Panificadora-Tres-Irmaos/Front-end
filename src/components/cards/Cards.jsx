@@ -12,34 +12,45 @@ import "swiper/css/navigation";
 
 function CardExample() {
   const [produtos, setProdutos] = useState([]);
-  const [produtosContadores, setProdutosContadores] = useState({});
   const [loading, setLoading] = useState(true);
 
   const categorias = ["pães", "bebidas", "frios", "doces"];
 
-
-  function adicionarAoCarrinho(produtoId, produtoNome, produtoPreco, contador) {
+  function adicionarAoCarrinho(produtoId, produtoNome, produtoPreco) {
     const email = localStorage.getItem("id"); // Pega o ID do usuário salvo
-  
+
     if (!email) {
       alert("Você precisa estar logado para adicionar itens ao carrinho.");
       return;
     }
-  
-    // Garante que contador é válido
-    const produtoValor = produtoPreco * quantidade;
-  
+
+    // Pega o valor do input de quantidade
+    const inputElement = document.getElementById(`quantidade-${produtoId}`);
+    const quantidade = inputElement ? parseInt(inputElement.value, 10) : 1;
+
+    console.log(quantidade)
+
+    // Verifica se a quantidade é válida
+    if (isNaN(quantidade) || quantidade < 1) {
+      alert("Quantidade inválida!");
+      return;
+    }
+
+    // Calcula o valor total do produto
+    const produtoValor = parseFloat((produtoPreco * quantidade).toFixed(2));
+
     const requestBody = {
-      produto_id: produtoId,
-      produto_nome: produtoNome,
-      produto_valor: produtoValor,
+      id: produtoId,
+      nome: produtoNome,
+      quantidade: quantidade,
+      valor: produtoValor
     };
-  
+
     console.log("Enviando para API:", requestBody);
-  
+
     axios
       .put(
-        `https://back-end-u0qf.onrender.com/user/insert_produto?user_id=${email}`,
+        `https://back-end-u0qf.onrender.com/user/insert_produto?user_email=${email}`,
         requestBody,
         {
           headers: { "Content-Type": "application/json" },
@@ -53,7 +64,7 @@ function CardExample() {
         console.error("Erro ao adicionar produto ao carrinho:", error.response?.data || error);
         alert(`Erro ao adicionar produto: ${error.response?.data?.message || "Erro desconhecido"}`);
       });
-  }  
+  }
 
   // Carregar produtos com base nas categorias
   useEffect(() => {
@@ -133,18 +144,21 @@ function CardExample() {
                         <Card.Text id={style.preco}>
                           <strong>R$ {produto.preco.toFixed(2).replace(".", ",")}</strong>
                         </Card.Text>
+                        
+                        {/* Input de quantidade */}
+                        <input
+                          type="number"
+                          min="1"
+                          defaultValue="1"
+                          id={`quantidade-${produto.id}`}
+                          className={style.qntd}
+                        />
+
+                        {/* Botão de adicionar ao carrinho */}
                         <Button
                           variant="primary"
                           id={style.btn}
-                          onClick={() => {
-                            setProdutosContadores((prevContadores) => {
-                              const novoContador = (prevContadores[produto.id] || 0) + 1;
-                              
-                              adicionarAoCarrinho(produto.id, produto.nome, produto.preco, novoContador);
-                              
-                              return { ...prevContadores, [produto.id]: novoContador };
-                            });
-                          }}
+                          onClick={() => adicionarAoCarrinho(produto.id, produto.nome, produto.preco)}
                         >
                           Adicionar ao carrinho
                         </Button>
