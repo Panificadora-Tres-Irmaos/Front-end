@@ -28,8 +28,6 @@ function CardExample() {
     const inputElement = document.getElementById(`quantidade-${produtoId}`);
     const quantidade = inputElement ? parseInt(inputElement.value, 10) : 1;
 
-    console.log(quantidade)
-
     // Verifica se a quantidade é válida
     if (isNaN(quantidade) || quantidade < 1) {
       alert("Quantidade inválida!");
@@ -58,7 +56,11 @@ function CardExample() {
       )
       .then((response) => {
         console.log("Sucesso:", response.data);
-        alert("Produto adicionado ao carrinho com sucesso!");
+        if (quantidade > 1) {
+          alert("Produtos adicionados ao carrinho com sucesso!")
+        } else {
+          alert("Produto adicionado ao carrinho com sucesso!")
+        }
       })
       .catch((error) => {
         console.error("Erro ao adicionar produto ao carrinho:", error.response?.data || error);
@@ -145,7 +147,6 @@ function CardExample() {
                           <strong>R$ {produto.preco.toFixed(2).replace(".", ",")}</strong>
                         </Card.Text>
                         
-                        {/* Input de quantidade */}
                         <input
                           type="number"
                           min="1"
@@ -154,7 +155,6 @@ function CardExample() {
                           className={style.qntd}
                         />
 
-                        {/* Botão de adicionar ao carrinho */}
                         <Button
                           variant="primary"
                           id={style.btn}
