@@ -14,6 +14,14 @@ function NavbarComponent() {
     navigate('/');
   };
 
+  const goToCart = () => {
+    navigate('/cart')
+  }
+
+  const goToProducts = () => {
+    navigate('/produtos')
+  }
+
   return (
     <Navbar expand="lg" id={style.customNavbar}>
       <Container id={style.container}>
@@ -24,10 +32,10 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" id={style.botaoMenu} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav id={style.contLinks}>
-            <Nav.Link href="#produtos" className={style.links}>
+            <Nav.Link className={style.links} onClick={goToProducts}>
               Produtos
             </Nav.Link>
-            <Nav.Link href="#compras" className={style.links}>
+            <Nav.Link className={style.links} onClick={goToCart}>
               <img
                 src="src/assets/images/carrinho-de-compras.png"
                 alt="Carrinho"
