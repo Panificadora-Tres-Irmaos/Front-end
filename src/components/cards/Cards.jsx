@@ -37,13 +37,11 @@ function CardExample() {
     }
 
     // Calcula o valor total do produto
-    const produtoValor = parseFloat((produtoPreco * quantidade).toFixed(2));
-
     const requestBody = {
       id: produtoId,
       nome: produtoNome,
       quantidade: quantidade,
-      valor: produtoValor
+      valor: produtoPreco
     };
 
     console.log("Enviando para API:", requestBody);
