@@ -43,13 +43,15 @@ function Cart() {
   
   }, [email]);
 
-  function finalizarPagamento() {
+  function finalizarPagamento(total) {
+
     axios
-      .post(`https://back-end-u0qf.onrender.com/user/make_purchase?email=${email}`)
+      .post(`https://back-end-u0qf.onrender.com/user/make_purchase?email=${email}&valor=${total}`)
       .then((response) => {
-        if (response == 200) {
+        if (response.status == 200) {
           alert("Compra realizada com sucesso!")
-        } else if (response == 401) {
+          setCarrinho([]);j
+        } else if (response.status == 401) {
           alert("Compra não autorizada")
         }
       })
@@ -113,13 +115,21 @@ function Cart() {
                           <td>
                             <strong>Total: </strong>
                           </td>
-                          <td>R$ {total.toFixed(2).replace(".", ",")}</td>
+                            {
+                              carrinho.length === 0 ? (
+                                <td>R$ 0,00</td>
+                              ) : (
+                                <td>
+                                R$ {total.toFixed(2).replace(".", ",")}
+                                </td>
+                              )
+                            }
                         </tr>
                       </tbody>
                     </table>
                     <Button
                       variant="primary"
-                      onClick={() => finalizarPagamento()}
+                      onClick={() => finalizarPagamento(total)}
                     >
                       Finalizar pagamento
                     </Button>
