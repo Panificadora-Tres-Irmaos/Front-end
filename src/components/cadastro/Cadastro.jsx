@@ -134,6 +134,7 @@ function Cadastro() {
           if (response.status === 200) {
             localStorage.setItem("id", dados.email);
             alert("Login realizado com sucesso!");
+            localStorage.setItem('registered', 'true');
             navigate("/produtos");
           } else {
             alert("Erro no login: " + JSON.stringify(result.message));
