@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./Cadastro.module.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Swal from "sweetalert2";
 
 function Cadastro() {
   const [etapa, setEtapa] = useState(1);
@@ -94,16 +95,38 @@ function Cadastro() {
 
           if (response.status === 201) {
             localStorage.setItem("id", dados.email); // Salva o ID do usuário
-            alert("Cadastro realizado com sucesso!");
+            Swal.fire({
+              icon: "success",
+              title: "Cadastro realizado!",
+              text: "Seu cadastro foi concluído com sucesso.",
+              confirmButtonColor: "#652A0E",
+            });
             navigate("/produtos");
           } else if (response.status === 409) {
-            alert("Erro: " + result.message);
+            Swal.fire({
+              icon: "error",
+              title: "Erro!",
+              text: result.message,
+              confirmButtonColor: "#d33",
+            });
           } else {
-            alert("Erro: " + error.message)
+            Swal.fire({
+              icon: "error",
+              title: "Erro!",
+              text: error.message,
+              confirmButtonColor: "#d33",
+            });
           }
-        } catch (error) {
-          alert("Erro na requisição: " + error.message);
-        }
+          
+          // No catch
+          } catch (error) {
+            Swal.fire({
+              icon: "error",
+              title: "Erro na requisição!",
+              text: error.message,
+              confirmButtonColor: "#d33",
+            });
+          }
       } else {
         const email = dados.email;
         const senha = dados.senha;
@@ -133,14 +156,30 @@ function Cadastro() {
 
           if (response.status === 200) {
             localStorage.setItem("id", dados.email);
-            alert("Login realizado com sucesso!");
+            Swal.fire({
+              icon: "success",
+              title: "Login realizado com sucesso!",
+              showConfirmButton: false,
+              timer: 2000, // Fecha sozinho depois de 2s
+            });
+            localStorage.setItem('registered', 'true');
             navigate("/produtos");
           } else {
-            alert("Erro no login: " + JSON.stringify(result.message));
+            Swal.fire({
+              icon: "error",
+              title: "Erro no login",
+              text: JSON.stringify(result.message),
+              confirmButtonColor: "#d33",
+            });
           }
-        } catch (error) {
-          alert("Erro na requisição: " + JSON.stringify(error.message));
-        }
+          } catch (error) {
+            Swal.fire({
+              icon: "error",
+              title: "Erro na requisição",
+              text: JSON.stringify(error.message),
+              confirmButtonColor: "#d33",
+            });
+          }
       }
     }
   };

@@ -1,0 +1,38 @@
+body {
+    background-color: #FEFBEA;
+}
+
+#carrinho {
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+
+    th {
+        font-size: 27px;
+        text-align: center;
+    }
+
+    td {
+        border: 2px solid #652A0E;
+        background-color: #FEFBEA;
+        padding: 10px 20px;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    #comprarBt {
+        font-size: 22px;
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #652A0E;
+    }
+
+    #comprarBt:hover {
+        background-color: #7d3818;
+    }
+}

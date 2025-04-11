@@ -9,6 +9,7 @@ import NavbarComponent from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "swiper/css";
 import "swiper/css/navigation";
+import Swal from 'sweetalert2';
 
 function CardExample() {
   const [produtos, setProdutos] = useState([]);
@@ -20,7 +21,12 @@ function CardExample() {
     const email = localStorage.getItem("id"); // Pega o ID do usuário salvo
 
     if (!email) {
-      alert("Você precisa estar logado para adicionar itens ao carrinho.");
+      Swal.fire({
+        icon: "warning",
+        title: "Atenção",
+        text: "Você precisa estar logado para adicionar itens ao carrinho.",
+        confirmButtonColor: "#652A0E",
+      });
       return;
     }
 
@@ -55,14 +61,29 @@ function CardExample() {
       .then((response) => {
         console.log("Sucesso:", response.data);
         if (quantidade > 1) {
-          alert("Produtos adicionados ao carrinho com sucesso!")
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: "Produto adicionado ao carrinho com sucesso!",
+            confirmButtonColor: "#652A0E",
+          });
         } else {
-          alert("Produto adicionado ao carrinho com sucesso!")
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: "Produtos adicionados ao carrinho com sucesso!",
+            confirmButtonColor: "#652A0E",
+          });
         }
       })
       .catch((error) => {
         console.error("Erro ao adicionar produto ao carrinho:", error.response?.data || error);
-        alert(`Erro ao adicionar produto: ${error.response?.data?.message || "Erro desconhecido"}`);
+        Swal.fire({
+          icon: "error",
+          title: "Erro!",
+          text: error.response?.data?.message || "Erro desconhecido",
+          confirmButtonColor: "#d33",
+        });
       });
   }
 
@@ -95,7 +116,10 @@ function CardExample() {
   }, []);
 
   if (loading) {
-    return <p>Carregando produtos...</p>;
+    return <>
+            <NavbarComponent />
+              <p>Carregando produtos...</p>
+          </>
   }
 
   return (
