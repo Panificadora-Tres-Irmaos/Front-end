@@ -91,7 +91,7 @@ function Cart() {
     
     axios
     .patch(`https://back-end-u0qf.onrender.com/user/delete_produto_carrinho?user_email=${email}&produto_id=${id}`)
-    .then((response) => {
+    .then(async (response) => {
       if (response.status == 200) {
         Swal.fire({
           title: 'Produto removido!',
@@ -99,6 +99,7 @@ function Cart() {
           icon: 'success',
           confirmButtonText: 'Ok'
         });
+        setCarrinho([])
       } else if (response.status == 404) {
         Swal.fire({
           title: 'Erro!',
