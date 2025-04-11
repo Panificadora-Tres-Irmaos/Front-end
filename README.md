@@ -11,6 +11,8 @@ A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimen
 - **Bootstrap**: Utilizamos componentes do Bootstrap como elementos da nossa página.
 - **Axios**: Utilizamos a biblioteca Axios para a utilização de API no React.
 - **React Icons**: Utilizamos React Icons para utilizarmos ícones de redes sociais no nosso projeto.
+- **Swiper**: Utilizamos o Swiper para criar carrosséis de categorias no nosso projeto React.
+- **SweetAlert2**: Utilizamos o SweetAlert2 para exibir alertas personalizados e interativos na aplicação.
 
 ## Como instalar as ferramentas necessárias
 
@@ -26,3 +28,9 @@ A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimen
 ```npm install swiper```
 5. Caso o SweetAlert2 não esteja funcionando na máquina, é necessário instalar a dependência do SweetAlert2 no React.js. A instalação pode ser realizada por meio do terminal (linha de comando), utilizando o seguinte comando:
 ```npm install sweetalert2```
+
+## Autores
+
+- [@Diogobq7](https://github.com/Diogobq7)
+- [@daniell0154](https://github.com/daniell0154)
+- [@Alisson1471](https://github.com/Alisson1471)
