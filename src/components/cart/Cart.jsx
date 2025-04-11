@@ -4,11 +4,13 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import style from "./Cart.module.css"
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const [carrinho, setCarrinho] = useState([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
 
 
   const email = localStorage.getItem("id");
@@ -59,8 +61,8 @@ function Cart() {
           });
           const saldoNovo = parseFloat(localStorage.getItem("saldo")) - total
           localStorage.setItem("saldo", saldoNovo)
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          location.reload();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          navigate("/produtos");
         } else if (response.status == 402) {
           Swal.fire({
             title: 'Erro!',
