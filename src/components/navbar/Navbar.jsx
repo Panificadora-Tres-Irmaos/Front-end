@@ -4,13 +4,27 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import style from "./Navbar.module.css";
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 
 function NavbarComponent() {
   const navigate = useNavigate();
+  const [saldo, setSaldo] = useState('');
+
+  useEffect(() => {
+    const saldo = localStorage.getItem('saldo');
+    setSaldo(saldo || 0);
+  }, []);
 
   const logout = () => {
     localStorage.removeItem('id');
-    alert('Você foi desconectado!');
+    Swal.fire({
+      icon: 'info',
+      title: 'Desconectado!',
+      text: 'Você foi desconectado!',
+      confirmButtonColor: '#652A0E',
+      confirmButtonText: 'OK'
+    });
     navigate('/');
   };
 
@@ -32,6 +46,7 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" id={style.botaoMenu} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav id={style.contLinks}>
+            <Nav.Item className={style.links}>R${saldo}</Nav.Item>
             <Nav.Link className={style.links} onClick={goToProducts}>
               Produtos
             </Nav.Link>

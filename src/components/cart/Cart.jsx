@@ -58,10 +58,17 @@ function Cart() {
             confirmButtonText: 'Ok'
           });
           setCarrinho([]);
-        } else if (response.status == 401) {
+        } else if (response.status == 402) {
           Swal.fire({
             title: 'Erro!',
-            text: 'Compra não autorizada.',
+            text: 'Saldo insuficiente.',
+            icon: 'error',
+            confirmButtonText: 'Tentar novamente'
+          });
+        } else if (response.status == 409) {
+          Swal.fire({
+            title: 'Erro!',
+            text: 'Compra não foi efetuada.',
             icon: 'error',
             confirmButtonText: 'Tentar novamente'
           });
@@ -76,6 +83,37 @@ function Cart() {
         });
       })
   }
+
+  function deletarProduto(id) {
+    
+    axios
+    .patch(`https://back-end-u0qf.onrender.com/user/delete_produto_carrinho?user_email=${email}&produto_id=${id}`)
+    .then((response) => {
+      if (response.status == 200) {
+        Swal.fire({
+          title: 'Produto removido!',
+          text: 'O produto foi removido com sucesso!',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        });
+      } else if (response.status == 404) {
+        Swal.fire({
+          title: 'Erro!',
+          text: 'Não foi possível remover produto.',
+          icon: 'error',
+          confirmButtonText: 'Tentar novamente'
+        });
+      }
+    })
+    .catch((error) => {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Ocorreu um erro ao remover seu produto.',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+    })
+  }
   
   return (
     <div>
@@ -89,6 +127,7 @@ function Cart() {
                       <table className="carrinho-table">
                         <thead className="carrinho-table">
                           <tr className="table-head">
+                            <th className="product-remove">Remover produto</th>
                             <th className="product-name">Nome</th>
                             <th className="product-price">Preço</th>
                             <th className="product-quantity">Quantidade</th>
@@ -103,6 +142,15 @@ function Cart() {
                       ) : (
                         carrinho.map((produto) => (
                           <tr key={produto.id} className="table-body">
+                            <td className="product-remove">
+                              <Button
+                                variant="primary"
+                                id={style.deletarBt}
+                                onClick={deletarProduto(produto.id)}
+                              >
+                                Remover
+                              </Button>
+                              </td>
                             <td className="product-name">{produto.nome}</td>
                             <td className="product-price">R$ {produto.valor.toFixed(2).replace(".", ",")}</td>
                             <td className="product-quantity">{produto.quantidade || 1}</td>
