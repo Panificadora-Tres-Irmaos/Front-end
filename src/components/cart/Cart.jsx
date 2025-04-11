@@ -3,6 +3,7 @@ import NavbarComponent from "../navbar/Navbar";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import style from "./Cart.module.css"
+import Swal from 'sweetalert2';
 
 function Cart() {
   const [carrinho, setCarrinho] = useState([]);
@@ -50,15 +51,29 @@ function Cart() {
       .post(`https://back-end-u0qf.onrender.com/user/make_purchase?email=${email}&valor=${total}`)
       .then((response) => {
         if (response.status == 200) {
-          alert("Compra realizada com sucesso!")
-          setCarrinho([]);j
+          Swal.fire({
+            title: 'Compra realizada!',
+            text: 'Sua compra foi feita com sucesso!',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          setCarrinho([]);
         } else if (response.status == 401) {
-          alert("Compra não autorizada")
+          Swal.fire({
+            title: 'Erro!',
+            text: 'Compra não autorizada.',
+            icon: 'error',
+            confirmButtonText: 'Tentar novamente'
+          });
         }
       })
       .catch((error) => {
-        console.error("Erro ao finalizar pedido: ", error);
-        setCarrinho([]);
+        Swal.fire({
+          title: 'Erro!',
+          text: 'Ocorreu um erro ao processar seu pedido.',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
       })
   }
   
@@ -74,7 +89,6 @@ function Cart() {
                       <table className="carrinho-table">
                         <thead className="carrinho-table">
                           <tr className="table-head">
-                            <th className="product-remove"></th>
                             <th className="product-name">Nome</th>
                             <th className="product-price">Preço</th>
                             <th className="product-quantity">Quantidade</th>
@@ -89,11 +103,6 @@ function Cart() {
                       ) : (
                         carrinho.map((produto) => (
                           <tr key={produto.id} className="table-body">
-                            <td className="product-remove">
-                              <a href="#">
-                                <i className="far fa-window-close"></i>
-                              </a>
-                            </td>
                             <td className="product-name">{produto.nome}</td>
                             <td className="product-price">R$ {produto.valor.toFixed(2).replace(".", ",")}</td>
                             <td className="product-quantity">{produto.quantidade || 1}</td>
