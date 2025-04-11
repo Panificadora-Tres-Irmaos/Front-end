@@ -34,8 +34,6 @@ function CardExample() {
     const inputElement = document.getElementById(`quantidade-${produtoId}`);
     const quantidade = inputElement ? parseInt(inputElement.value, 10) : 1;
 
-    console.log(quantidade)
-
     // Verifica se a quantidade é válida
     if (isNaN(quantidade) || quantidade < 1) {
       alert("Quantidade inválida!");
@@ -62,12 +60,21 @@ function CardExample() {
       )
       .then((response) => {
         console.log("Sucesso:", response.data);
-        Swal.fire({
-          icon: "success",
-          title: "Sucesso!",
-          text: "Produto adicionado ao carrinho com sucesso!",
-          confirmButtonColor: "#652A0E",
-        });
+        if (quantidade > 1) {
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: "Produto adicionado ao carrinho com sucesso!",
+            confirmButtonColor: "#652A0E",
+          });
+        } else {
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            text: "Produtos adicionados ao carrinho com sucesso!",
+            confirmButtonColor: "#652A0E",
+          });
+        }
       })
       .catch((error) => {
         console.error("Erro ao adicionar produto ao carrinho:", error.response?.data || error);
@@ -162,7 +169,6 @@ function CardExample() {
                           <strong>R$ {produto.preco.toFixed(2).replace(".", ",")}</strong>
                         </Card.Text>
                         
-                        {/* Input de quantidade */}
                         <input
                           type="number"
                           min="1"
@@ -171,7 +177,6 @@ function CardExample() {
                           className={style.qntd}
                         />
 
-                        {/* Botão de adicionar ao carrinho */}
                         <Button
                           variant="primary"
                           id={style.btn}
