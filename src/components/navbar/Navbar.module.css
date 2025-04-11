@@ -53,6 +53,14 @@
             color: #FEFBEA;
         }
 
+        #saldo {
+            margin-top: 10px;
+        }
+
+        #saldo:hover {
+            cursor: default;
+        }
+
         .links {
             color: #FEFBEA;
             transition: 0.3s ease-in-out;

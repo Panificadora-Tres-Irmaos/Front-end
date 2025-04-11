@@ -46,7 +46,7 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" id={style.botaoMenu} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav id={style.contLinks}>
-            <Nav.Item className={style.links}>R${saldo}</Nav.Item>
+            <Nav.Item className={style.links} id={style.saldo}>R$ {parseFloat(saldo).toFixed(2).replace('.', ',')}</Nav.Item>
             <Nav.Link className={style.links} onClick={goToProducts}>
               Produtos
             </Nav.Link>
