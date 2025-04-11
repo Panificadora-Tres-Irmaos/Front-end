@@ -16,7 +16,6 @@ A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimen
 
 ## Como instalar as ferramentas necessárias
 
-### Front-end:
 1. Para o Front-end, é necessário que a máquina possua o **Node.js** para rodar o projeto **React**, por meio do **Vite**.
 - Você pode obter mais informações sobre a criação de projetos com o Vite clicando [aqui](https://pt.vite.dev/guide/).
 2. Caso o Bootstrap não esteja funcionando na máquina, é necessário instalar a dependência do Bootstrap no React.js. A instalação pode ser realizada por meio do terminal (linha de comando), utilizando o seguinte comando:
