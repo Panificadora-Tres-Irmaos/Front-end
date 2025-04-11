@@ -28,3 +28,9 @@ A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimen
 ```npm install swiper```
 5. Caso o SweetAlert2 não esteja funcionando na máquina, é necessário instalar a dependência do SweetAlert2 no React.js. A instalação pode ser realizada por meio do terminal (linha de comando), utilizando o seguinte comando:
 ```npm install sweetalert2```
+
+## Autores
+
+- [@Diogobq7](https://github.com/Diogobq7)
+- [@daniell0154](https://github.com/daniell0154)
+- [@Alisson1471](https://github.com/Alisson1471)
