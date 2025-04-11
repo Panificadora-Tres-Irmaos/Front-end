@@ -14,7 +14,7 @@ function NavbarComponent() {
   const [saldo, setSaldo] = useState('');
 
   useEffect(() => {
-    const saldo = localStorage.getItem('saldo');
+    const saldo = parseFloat(localStorage.getItem('saldo'));
     setSaldo(saldo || 0);
   }, []);
 
