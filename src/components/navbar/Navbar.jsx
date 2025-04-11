@@ -6,6 +6,8 @@ import style from "./Navbar.module.css";
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
+import logo from '../../assets/logo/logo_branca.png';
+import carrinho_img from '../../assets/images/carrinho-de-compras.png'
 
 function NavbarComponent() {
   const navigate = useNavigate();
@@ -40,7 +42,7 @@ function NavbarComponent() {
     <Navbar expand="lg" id={style.customNavbar}>
       <Container id={style.container}>
         <Navbar.Brand id={style.titleNav}>
-          <img src="src/assets/logo/logo_branca.png" alt="Logo" />
+          <img src={logo} alt="Logo" />
           <p>Panificadora Três Irmãos</p>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" id={style.botaoMenu} />
@@ -52,7 +54,7 @@ function NavbarComponent() {
             </Nav.Link>
             <Nav.Link className={style.links} onClick={goToCart}>
               <img
-                src="src/assets/images/carrinho-de-compras.png"
+                src={carrinho_img}
                 alt="Carrinho"
               />
             </Nav.Link>

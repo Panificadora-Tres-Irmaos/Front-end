@@ -4,6 +4,7 @@
   import Form from "react-bootstrap/Form";
   import Button from "react-bootstrap/Button";
   import Swal from "sweetalert2";
+  import logo from '../../assets/logo/logo_branco_puro.png';
 
   function Cadastro() {
     const [etapa, setEtapa] = useState(1);
@@ -191,7 +192,7 @@
       <container>
         <div id={style.divLogo}>
           <img
-            src="src/assets/logo/logo_branco_puro.png"
+            src={logo}
             alt="logo"
             id={style.logo}
           />
