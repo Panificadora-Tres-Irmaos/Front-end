@@ -35,4 +35,17 @@ body {
     #comprarBt:hover {
         background-color: #7d3818;
     }
+
+    #deletarBt {
+        background-color: red;
+        font-size: 18px;
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    #deletarBt:hover {
+        background-color: rgb(216, 47, 47);
+    }
 }
