@@ -14,6 +14,13 @@ A **Panificadora Três Irmãos** é um projeto da matéria de DAD (Desenvolvimen
 - **Swiper**: Utilizamos o Swiper para criar carrosséis de categorias no nosso projeto React.
 - **SweetAlert2**: Utilizamos o SweetAlert2 para exibir alertas personalizados e interativos na aplicação.
 
+## Como rodar o projeto
+1. Para rodar o projeto é necessário que você tenha instalado a node modules, pasta que contém as dependência necessárias do projeto.
+- Caso você não a possua no seu projeto, abra o terminal e execute:
+```npm install```
+2. Depois de possuir a node modules, execute o seguinte código no terminal para rodar o projeto:
+```npm run dev```
+
 ## Como instalar as ferramentas necessárias
 
 1. Para o Front-end, é necessário que a máquina possua o **Node.js** para rodar o projeto **React**, por meio do **Vite**.
